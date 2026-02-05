@@ -1,5 +1,5 @@
 name: KnightHomes
-version: 1.0.0
+version: 1.3.1
 main: com.knightgost.knighthomes.KnightHomes
 api-version: 1.20
 softdepend:
@@ -7,7 +7,7 @@ softdepend:
 commands:
   home:
     description: Open home GUI or use subcommands like /home reload
-    usage: /home [reload|...]
+    usage: Usage /knighthomes:home [reload|...]
 
 permissions:
   home.reload:
@@ -18,9 +18,13 @@ permissions:
     description: Allows use of /home command
     default: true
 
+  knighthomes.home.limit.*:
+    description:  Allows any home limit
+    default: false
+
   knighthomes.home.limit.1:
     description: Allows setting 1 home
-    default: true
+    default: false
 
   knighthomes.home.limit.2:
     description: Allows setting 2 homes

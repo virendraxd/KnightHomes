@@ -71,14 +71,4 @@ public class HomeManager {
             e.printStackTrace();
         }
     }
-
-    public static int countHomes(UUID uuid) {
-        int count = 0;
-        for (int i = 0; i < 5; i++) {
-            if (loadHome(uuid, i) != null) {
-                count++;
-            }
-        }
-        return count;
-    }
 }

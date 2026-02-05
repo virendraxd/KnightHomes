@@ -11,6 +11,7 @@ public class KnightHomes extends JavaPlugin {
     public void onEnable() {
         getLogger().info("KnightHomes is now enabled!");
 
+        reloadConfig();
         saveDefaultConfig();  // Copies config.yml from resources to plugin folder if not exists
         addMissingDefaults(); // Add missing defaults without overwriting existing values
 
@@ -76,6 +77,7 @@ public class KnightHomes extends JavaPlugin {
         if (!config.isSet("cooldown.time")) config.set("cooldown.time", 1);
         if (!config.isSet("cooldown.bypass-permission")) config.set("cooldown.bypass-permission", "knighthomes.cooldown.bypass");
         if (!config.isSet("combat-teleport-block")) config.set("combat-teleport-block", true);
+        if (!config.isSet("default-home-limit")) config.set("default-home-limit", 1);
 
         saveConfig();
     }

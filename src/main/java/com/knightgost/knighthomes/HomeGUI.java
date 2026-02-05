@@ -27,7 +27,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-
+//boolean slotUnlocked
 public class HomeGUI implements Listener {
     public static Map<UUID, Integer> deletingHomeSlot = new HashMap<>();
     public static final Map<UUID, BukkitTask> activeDeleteTasks = new ConcurrentHashMap<>();
@@ -48,7 +48,12 @@ public class HomeGUI implements Listener {
                 return i;
             }
         }
-        return 1; // default, if no permission is set
+
+        int defaultLimit = KnightHomes.getInstance()
+                .getConfig()
+                .getInt("default-home-limit", 1);
+
+        return Math.max(1, Math.min(defaultLimit, 5));
     }
 
     public void openHomeGui(Player player) {
@@ -263,9 +268,9 @@ public class HomeGUI implements Listener {
                     return;
                 }
 
-                int currentHomes = HomeManager.countHomes(uuid);
                 int maxHomes = HomeGUI.getMaxHomesAllowed(player);
-                if (currentHomes >= maxHomes) {
+                // homeSlot is 0-based (0–4), maxHomes is 1–5
+                if (homeSlot  >= maxHomes) {
                     player.sendMessage("§cYou have reached the maximum number of homes.");
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1f, 0.5f);
                     return;
@@ -277,7 +282,6 @@ public class HomeGUI implements Listener {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1f, 1f);
                 player.closeInventory();
             }
-
         }
     }
 
