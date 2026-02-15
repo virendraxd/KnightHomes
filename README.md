@@ -1,25 +1,20 @@
 # KnightHomes 🏠
 
-KnightHomes is a lightweight and customizable Minecraft plugin that allows players to set, teleport to, and manage personal homes with a clean and modern GUI with sound effects.
+KnightHomes is a lightweight and customizable Minecraft plugin that allows players to set, teleport to and manage personal homes with a clean and modern GUI with sound effects.
 
 ## ✨ Features
-- Set, teleport to, and delete homes
+- Set, teleport to and delete homes
 - Customizable home limits via permissions
 - GUI-based home management and sound effects on an event
-- **Change icons and their colors directly in `config.yml` — no server restart needed!**  
+- **Change icons and their colors directly in `config.yml` - no server restart needed!**  
   Just run `/home reload` to apply changes instantly.
 - Simple configuration
 
 ## 📥 Installation
-Download the latest .jar from Modrinth.
-
-Download: 
-https://modrinth.com/plugin/knighthomes
-
-
-Place it into your server's plugins folder.
-
-Restart the server.
+1. Download the latest .jar from Modrinth.
+   - https://modrinth.com/plugin/knighthomes
+2. Place it into your server's plugins folder.
+3. Restart the server.
 
 Configure config.yml to your liking.
 
@@ -30,16 +25,17 @@ Configure config.yml to your liking.
 | `/home reload`   | Reloads the plugin configuration | home.reload       |
 
 ## ⚙️ Permissions
-| Permissions                   | Description                               |
-|-------------------------------|-------------------------------------------|
-|`home.reload`                  |  Allows user to reload the Home plugin    |
-|`knighthomes.home`             |  Allows use of /home command              |
-|`knighthomes.home.limit.1`     |  Allows setting 1 home                    |
-|`knighthomes.home.limit.2`     |  Allows setting 2 home                    |
-|`knighthomes.home.limit.3`     |  Allows setting 3 home                    |
-|`knighthomes.home.limit.4`     |  Allows setting 4 home                    |
-|`knighthomes.home.limit.5`     |  Allows setting 5 home                    |
-|`knighthomes.cooldown.bypass`  |  Allows bypass teleport cooldown          |
+| Permissions                   | Description                       |
+|-------------------------------|-----------------------------------|
+| `home.reload`                 | Allows user to reload KnightHomes |
+| `knighthomes.home`            | Allows use of /home command       |
+| `knighthomes.home.limit.*`    | Allows any home limit             |
+| `knighthomes.home.limit.1`    | Allows setting 1 home             |
+| `knighthomes.home.limit.2`    | Allows setting 2 home             |
+| `knighthomes.home.limit.3`    | Allows setting 3 home             |
+| `knighthomes.home.limit.4`    | Allows setting 4 home             |
+| `knighthomes.home.limit.5`    | Allows setting 5 home             |
+| `knighthomes.cooldown.bypass` | Allows bypass teleport cooldown   |
 
 ## ⚙️ Config (Allow changing Icons and their colors)
 ```yaml
@@ -47,7 +43,6 @@ Configure config.yml to your liking.
 # |                                           ICONS                                               | #
 # +----------------------------------------------------------------------------------------------+ #
 
-# Define Unicode icons for different actions. These are shown in messages.    
 icons:
   player: "⭐"                      # Shown before player names
   homes_owned: "🏠"                 # Shown before personal home names/messages
@@ -69,7 +64,6 @@ icons:
 # |                                           COLORS                                              | #
 # +----------------------------------------------------------------------------------------------+ #
 
-# Colors use '&' codes and are applied to icons/messages.
 colors:
   player: "&6"
   homes_owned: "&f"                  # Green
@@ -97,11 +91,13 @@ cooldown:
   bypass-permission: knighthomes.cooldown.bypass
 
 combat-teleport-block: true
+
+default-home-limit: 1  # Unicode icons for different actions. These are shown in messages.
 ```
 
 ## Support & Issue
 🐛 If you find a bug or have a suggestion, please open an issue here:
-https://github.com/virendraXD/KnightHomes/issues
+https://github.com/virendraXD/KnightHomes/issues or 
 
 Discord: https://discord.gg/uySRT32aRD
 
