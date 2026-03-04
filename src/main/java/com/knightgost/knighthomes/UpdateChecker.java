@@ -20,6 +20,30 @@ public class UpdateChecker {
         this.versionURL = versionURL;
     }
 
+    private boolean isUpdateAvailable(String current, String latest) {
+
+        String[] currentParts = current.split("\\.");
+        String[] latestParts = latest.split("\\.");
+
+        int length = Math.max(currentParts.length, latestParts.length);
+
+        for (int i = 0; i < length; i++) {
+
+            int currentPart = i < currentParts.length ? Integer.parseInt(currentParts[i]) : 0;
+            int latestPart = i < latestParts.length ? Integer.parseInt(latestParts[i]) : 0;
+
+            if (latestPart > currentPart) {
+                return true;
+            }
+
+            if (latestPart < currentPart) {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     public void checkForUpdates() {
 
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
@@ -36,9 +60,9 @@ public class UpdateChecker {
 
                 String currentVersion = plugin.getPluginMeta().getVersion();
 
-                if (!currentVersion.equalsIgnoreCase(latestVersion)) {
+                if (isUpdateAvailable(currentVersion, latestVersion)) {
                     plugin.getLogger().warning("A new version " + latestVersion
-                    + " is available, you are running " + currentVersion);
+                            + " is available, you are running " + currentVersion);
                 }
 
             } catch (Exception ignored) {
@@ -54,7 +78,7 @@ public class UpdateChecker {
 
         String currentVersion = plugin.getPluginMeta().getVersion();
 
-        if (!currentVersion.equalsIgnoreCase(latestVersion)) {
+        if (isUpdateAvailable(currentVersion, latestVersion)) {
             player.sendMessage("§6§l[KnightHomes] §6A new version " + latestVersion
                     + " is available, you are running " + currentVersion);
         }
