@@ -1,22 +1,43 @@
-# VS Code settings
-.vscode/
+# =========================
+# Java / Maven Project
+# =========================
 
 # Maven build folder
-target/
+/target/
 
-# Compiled class file
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
-# BlueJ files
+# Crash logs
+hs_err_pid*
+replay_pid*
+
+# =========================
+# IDE / Editor Settings
+# =========================
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# BlueJ
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# =========================
+# Archive / Build Packages
+# =========================
 
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -25,6 +46,14 @@ target/
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# =========================
+# OS / Miscellaneous
+# =========================
+
+.DS_Store
+Thumbs.db
+*.properties
+*.cmd
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/

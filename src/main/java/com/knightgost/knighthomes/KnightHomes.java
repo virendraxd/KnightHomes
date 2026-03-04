@@ -13,6 +13,13 @@ public class KnightHomes extends JavaPlugin {
 
         reloadConfig();
         saveDefaultConfig();  // Copies config.yml from resources to plugin folder if not exists
+        
+        // version checker
+        String versionURL = "https://raw.githubusercontent.com/virendraxd/KnightHomes/main/version.txt";
+
+        UpdateChecker updateChecker = new UpdateChecker(this, versionURL);
+        updateChecker.checkForUpdates();
+
         addMissingDefaults(); // Add missing defaults without overwriting existing values
 
         getLogger().info("KnightHomes loaded with configuration.");
@@ -22,6 +29,7 @@ public class KnightHomes extends JavaPlugin {
         instance = this;
         getServer().getPluginManager().registerEvents(new CombatListener(), this);
         getServer().getPluginManager().registerEvents(new TeleportUtils(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(updateChecker), this);
     }
 
     public static KnightHomes getInstance() {
